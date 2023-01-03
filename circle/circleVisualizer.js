@@ -1,5 +1,4 @@
 window.onload = function() {
-
 	var file = document.getElementById("thefile");
 	var audio = document.getElementById("audio");
 
@@ -43,8 +42,6 @@ window.onload = function() {
 		var width = canvas.width;
 		var height = canvas.height;
 
-		// var x = 0;
-
 		const center_x = width/2;
 		const center_y = height/2;
 		const radius = 150;
@@ -52,20 +49,12 @@ window.onload = function() {
 		function renderFrame() {
 			requestAnimationFrame(renderFrame);
 
-			// x = 0;
-
 			//copies the current frequency data into dataArray - results in an array of values between 0 and 255
 			analyser.getByteFrequencyData(dataArray);
 						
 			//sets canvas background color to black 
 			ctx.fillStyle = "#000";
 			ctx.fillRect(0, 0, width, height);
-
-			 // draw a circle
-			// ctx.beginPath();
-			// ctx.arc(center_x, center_y, radius, 0, 2*Math.PI);
-			// ctx.strokeStyle = "rgb(" + 50 + ", " + 300 + ", " + 300 + ")";
-			// ctx.stroke();
 
 			for (var i = 0; i < bufferLength; i++) {
 
@@ -110,25 +99,6 @@ window.onload = function() {
 					ctx.lineWidth = 2;
 					ctx.stroke();
 				}
-				
-				//var lineColor = "rgb(" + 20 + ", " + 300 + ", " + 300 + ")";
-
-				// ctx.beginPath();
-				// ctx.arc(Math.floor(Math.random()*((width - 0 + 1) + 0)), Math.floor(Math.random()*((height - 0 + 1) + 0)), radius/dataArray[i] * 1.5, 0, 2*Math.PI);
-				// ctx.strokeStyle = "rgb(" + dataArray[i] + ", " + 250 + ", " + 250 + ")";
-				// ctx.lineWidth = 3;
-				// ctx.stroke();
-	
-				// ctx.strokeStyle = lineColor;
-				// ctx.lineWidth = barWidth;
-				// ctx.beginPath();
-				// ctx.moveTo(x,y);
-				// ctx.lineTo(x_end,y_end);
-
-				//ctx.lineTo(x_end+50,y_end+50);
-
-				// x += barWidth + 1;
-
 			}
 		}
 
@@ -136,16 +106,4 @@ window.onload = function() {
 		renderFrame();
 	};
 };
-
-// function drawBar(x1, y1, x2, y2, width,frequency){
-    
-// 	var lineColor = "rgb(" + frequency + ", " + frequency + ", " + 205 + ")";
-	
-// 	ctx.strokeStyle = lineColor;
-// 	ctx.lineWidth = width;
-// 	ctx.beginPath();
-// 	ctx.moveTo(x1,y1);
-// 	ctx.lineTo(x2,y2);
-// 	ctx.stroke();
-// }
     
